@@ -2,7 +2,7 @@
 ## Metainformationen
 ### Verfasser: David Weinberger & Lukas Haselberger & Simon Klingesberger & Flori Zöhner
 ### Klasse: 5AHITS
-### ITSE-Labor
+### Fach: ITSE-Labor
 
 ### Idee bzw. Ideenerweiterung
 Die Anfangsidee war es das wir einen Website bauen welche dann einen login durch Benutzername und Passwort bietet und man dann durch die Anmeldung an einem Gewinnspiel der HTL Braunau teilzunehmen, wo man einen 100 Euro Buffetgutschein gewinnen kann.           
