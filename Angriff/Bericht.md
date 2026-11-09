@@ -4,7 +4,7 @@
 ### Klasse: 5AHITS
 ### Fach: ITSE-Labor
 
-### Idee bzw. Ideenerweiterung
+## Idee bzw. Ideenerweiterung
 Die Anfangsidee war es das wir einen Website bauen welche dann einen login durch Benutzername und Passwort bietet und man dann durch die Anmeldung an einem Gewinnspiel der HTL Braunau teilzunehmen, wo man einen 100 Euro Buffetgutschein gewinnen kann.           
 
 Dann haben wir weiterhin überlegt dass noch auszubauen damit man auch die Klasse angeben muss, da dann der Reiz steigen würde mehrere Leute aus seiner Klasse für das Gewinnspiel zu motivieren.       
