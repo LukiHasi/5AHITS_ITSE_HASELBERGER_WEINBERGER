@@ -1,6 +1,6 @@
 # Angriff auf die HTL Braunau
 ## Metainformationen
-### Verfasser: David Weinberger & Lukas Haselberger & Simon Klingesberger & Flori Zöhner
+### Verfasser: David Weinberger & Lukas Haselberger & Simon Klingesberger & Flori Bub Zöhner
 ### Klasse: 5AHITS
 ### Fach: ITSE-Labor
 
