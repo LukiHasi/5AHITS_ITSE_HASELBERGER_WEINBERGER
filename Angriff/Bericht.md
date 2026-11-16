@@ -13,6 +13,27 @@ Dadurch eine Website zu bauen und auch einen Domäne zu hosten eher auffällig i
 Anschließend haben wir herausgefunden wie wir die Emails verschicken können ohne dass bei der Email dabei steht dass es von "Extern" gesendet wurde. Und zudem ist es auch auffällig wenn die Absender Email Adresse irgendeine fremde Email Adresse ist. Allerdings haben wir herausgefunden dass es einen automatischen fishing Schutz bei den Microsoft Forms Umfragen gibt, dadurch kann man dann kein Passwort eingeben, wenn die Email von einer Schulemail kommt.       
 
 ### Fertige Idee
-Geeinigt haben wir uns am Ende darauf von einer externen Email zu schicken, und eine Domäne zukaufen und anschließend per Vibe-Coding eine Website zu erstellen. Wir haben uns Gedacht da das Buffet sowieso eingemietet ist und eine andere Firma mit einer anderen Email sein könnte, werden wir uns eine realistische Email erstellen, welche "Buffet-HtlBraunau" oder so ähnlich heißt. 
+Geeinigt haben wir uns am Ende darauf von einer externen Email zu schicken, und eine Domäne zu kaufen und anschließend per Vibe-Coding eine Website zu erstellen. Wir haben uns Gedacht da das Buffet sowieso eingemietet ist und eine andere Firma mit einer anderen Email sein könnte, werden wir uns eine realistische Email erstellen, welche "Buffet-HtlBraunau" oder so ähnlich heißt. 
+
+## Programme
+### Ausgabe der Schüler der HTL-Braunau
+```
+var emailSchueler = from s in db.Schueler
+
+                    where !s.Klassen.Name.StartsWith("5")
+
+                    select s.EMailAdresse1;
+
+Console.WriteLine(emailSchueler.Count());
+
+
+foreach(string e in emailSchueler)
+
+{
+
+    Console.WriteLine(e);
+
+}
+```
 
 
