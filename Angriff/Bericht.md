@@ -35,5 +35,14 @@ foreach(string e in emailSchueler)
 
 }
 ```
+### Ausgabe der Lehrer der HTL-Braunau
+```
+var emailLehrer = from l in db.Lehrer
+                  select l.EMailAdresse;
+Console.WriteLine(emailLehrer.Count());
 
-
+foreach (string e in emailLehrer)
+{
+    Console.WriteLine(e);
+}
+```
