@@ -44,5 +44,100 @@ foreach (string e in emailLehrer)
     Console.WriteLine(e);
 }
 ```
+## Bau der Website
+ 
+### Technischer Aufbau
+ 
+Die Website ist eine einzelne statische HTML-Datei (`index.html`) mit eingebettetem
+
+CSS und JavaScript – also ohne Framework. Dadurch ist sie schnell, leicht zu hosten
+
+und überall lauffähig. Optisch orientiert sie sich an einer typischen
+
+Microsoft-/Schul-Anmeldeseite: eine weiße Karte in der Mitte, dahinter ein
+
+Vollbild-Foto der Schule als Hintergrund und das HTL-Logo oben.
+ 
+### Mehrstufiger Anmeldeablauf
+ 
+Statt alle Felder auf einmal zu zeigen, führt die Seite Schritt für Schritt durch den
+
+Vorgang – genau wie echte Login-Dienste. Die einzelnen Schritte werden per JavaScript
+
+ein- und ausgeblendet:
+ 
+1. **E-Mail-Adresse** – Eingabe und Prüfung, ob die Adresse auf `@htl-braunau.at` endet.
+
+2. **Kennwort** – wird eingegeben, aber bewusst **nicht gespeichert und nicht übertragen**.
+
+3. **Rolle** – Auswahl zwischen *Schüler* und *Lehrer*.
+
+4. **Klasse** (nur für Schüler) – zuerst Jahrgang wählen, danach erscheinen im zweiten
+
+   Dropdown automatisch die passenden Klassen dieses Jahrgangs. Lehrer überspringen
+
+   diesen Schritt.
+
+5. **Danke-Seite** – Bestätigung der „Anmeldung".
+ 
+### Design-Details für mehr Realismus
+ 
+- **Hintergrundfoto + Abdunkelung:** Das Schulfoto füllt den Bildschirm, eine leichte
+
+  dunkle Ebene darüber hält die weiße Karte gut lesbar.
+
+- **Lade-Rad (Spinner):** Nach dem Absenden einzelner Schritte (Passwort, Rolle,
+
+  Klasse) erscheint kurz ein drehendes Lade-Rad, bevor es weitergeht. Das wirkt wie
+
+  ein echter Server-Vorgang.
+
+- **Abhängige Dropdowns:** Die Klassen sind je Jahrgang hinterlegt, sodass immer nur
+
+  real existierende Klassen zur Auswahl stehen.
+ 
+### Speicherung der Eingaben
+ 
+Bei der Datenspeicherung haben wir mehrere Varianten durchlaufen:
+ 
+1. **Lokal (erste Version):** Ein kleiner Python-Server (`server.py`) bzw. ein
+
+   PHP-Skript (`save.php`) nahm die Eingaben entgegen und schrieb sie in eine
+
+   CSV-Datei (`anmeldungen.csv`). Eine `.htaccess`-Datei sperrte den direkten
+
+   Browser-Zugriff auf diese Datei.
+
+2. **Problem beim Online-Hosting:** Die Domain läuft auf **Vercel**. Vercel führt
+
+   jedoch **kein PHP** aus und erlaubt **kein dauerhaftes Schreiben von Dateien** –
+
+   die CSV-Lösung funktionierte dort also nicht.
+
+3. **Finale Lösung – Google Sheet:** Die Seite sendet die Eingaben per `fetch` an ein
+
+   **Google-Apps-Script** (Web-App), das jede Anmeldung als neue Zeile in ein
+
+   **Google Sheet** schreibt. So sind die Daten sofort in einer Tabelle sichtbar,
+
+   ganz ohne eigenen Server.
+ 
+Gespeichert werden ausschließlich **Zeitstempel, E-Mail, Rolle und Klasse** – das
+
+**Passwort wird an keiner Stelle gespeichert oder verschickt**. Zusätzlich prüft auch
+
+das Skript serverseitig, dass nur `@htl-braunau.at`-Adressen übernommen werden.
+ 
+### Hosting und Veröffentlichung
+ 
+Der Code liegt in einem GitHub-Repository. Die Domain wird über **Vercel**
+
+bereitgestellt, das bei jedem Push automatisch die neueste Version veröffentlicht
+
+(Continuous Deployment). Eine Änderung am Code ist dadurch nach kurzer Zeit live.
+ 
+
+
+
 
 
